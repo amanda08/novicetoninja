@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Ninja::Application.config.secret_key_base = '32a8306d58953651adcdda6ad8f725a3d733232a41ad379ce42c65f0db33bf72c2ac671f8286b13a76361f74acaee66fe3132b4b8ecaa4797fb7d58d24256997'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+	# Use the existing token
+	File.read(token_file).chomp
+  else
+	# Generate a new token and store it in token_file
+ 	token = SecureRandom.hex(64)
+ 	File.write(token_file, token)
+ 	token
+  end
+end
+
+Ninja::Application.config.secret_key_base = secure_token
