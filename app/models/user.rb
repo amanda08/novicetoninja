@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_save { self.email = email.downcase }
   has_many :activities
   attr_accessor :email, :first_name, :last_name
   attr_accessor :password

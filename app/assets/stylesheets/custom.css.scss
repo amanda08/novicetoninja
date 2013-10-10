@@ -70,7 +70,7 @@ p {
 	font-weight: bold;
 	line-height: 1;
 	&:hover {
-	  color: #fff;
+	  color: white;
 	  text-decoration: none;
 	}
 }
@@ -81,12 +81,14 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: $grayLight;
+  color: #999;
   a {
     color: #555;
     &:hover {
-    	color: #222;
+    	color: white;
+      text-decoration: none;
     }
+  }
   small {
     float: left;
   }
@@ -97,7 +99,6 @@ footer {
       float: left;
       margin-left: 10px;
     }
-   }
   }
 }
 
