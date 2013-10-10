@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #example of strong params
     if @user.save
+      sign_in @user
       flash[:success] = "Thank-you for signing up!"
       redirect_to @user
     else
