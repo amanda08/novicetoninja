@@ -4,7 +4,7 @@ namespace :db do
     admin = User.create!(first_name: "Super User",
                          last_name: "Super",
                          email: "super@whoiscoco.com",
-                         password: "foobar"
+                         password: "foobar",
                          password_confirmation: "foobar",
                          admin: true)
     99.times do |n|
