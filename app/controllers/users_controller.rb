@@ -22,9 +22,10 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) #example of strong params
     if @user.save
-      redirect_to root_url, :notice => "Signed up!"
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
     else
       render "new"
     end
@@ -62,6 +63,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 end
