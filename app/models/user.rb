@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
-  has_many :activities
+  has_many :activities, dependent: :destroy
+  has_many :goals, dependent: :destroy
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -21,6 +22,11 @@ class User < ActiveRecord::Base
 
   def name
     [first_name, last_name].join(' ')
+  end
+
+  def feed
+    # This is preliminary. TODO
+    Goal.where("user_id = ?", id)
   end
 
   private

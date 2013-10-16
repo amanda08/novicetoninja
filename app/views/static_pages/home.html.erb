@@ -1,13 +1,29 @@
-<div class="center hero-unit" >
-
-  <h1 style="width: 75%">Novice to Ninja</h1>
-  <h3 style="width: 75%; font-weight: normal">
-    Track your progress on your way from novice to ninja in the skills you want to master!
-  </h3>
-</br>
-  <p style="width: 75%"><%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-  </p>
-</div>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/goal_form' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <h3>Activity Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center hero-unit" >
+    <h1 style="width: 75%">Novice to Ninja</h1>
+    <h3 style="width: 75%; font-weight: normal">
+      Track your progress on your way from novice to ninja in the skills you want to master!
+    </h3>
+  </br>
+    <p style="width: 75%"><%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+    </p>
+  </div>
+<% end %>
 
 
 

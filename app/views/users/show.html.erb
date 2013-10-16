@@ -9,4 +9,14 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.goals.any? %>
+    <h3>Goals (<%= @user.goals.count %>)</h3>
+    <ol class="goals">
+      <%= render @goals %>
+    </ol>
+    <%= will_paginate @goals %>
+    <% end %>
+  </div>
+  
 </div>
