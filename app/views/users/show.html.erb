@@ -8,8 +8,12 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
     <% if @user.goals.any? %>
     <h3>Goals (<%= @user.goals.count %>)</h3>
     <ol class="goals">
@@ -18,5 +22,4 @@
     <%= will_paginate @goals %>
     <% end %>
   </div>
-  
 </div>

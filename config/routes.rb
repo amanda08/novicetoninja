@@ -6,10 +6,15 @@ Ninja::Application.routes.draw do
   match '/signin', to: 'sessions#new',          via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   root 'static_pages#home'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :activities
-  resources :sessions,  only: [:new, :create, :destroy]
-  resources :goals,     only: [:create, :destroy]
+  resources :sessions,      only: [:new, :create, :destroy]
+  resources :goals,         only: [:create, :destroy]
+  resources :relationships, only:[:create, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
