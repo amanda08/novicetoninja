@@ -1,5 +1,24 @@
-<h1>New activity</h1>
+<%= provide(:page_title, 'Log Activity') %>
+<h1>Log activity</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@activity) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
 
-<%= render 'form' %>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
 
-<%= link_to 'Back', activities_path %>
+      <%= f.label :link %>
+      <%= f.text_field :link %>
+
+      <%= f.label :xp %>
+      <%= f.number_field :xp %>
+
+      <div style="text-align: center;">
+        <%= f.submit "Add activity", class: "btn btn-large btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

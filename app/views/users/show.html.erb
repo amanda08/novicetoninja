@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:page_title, @user.name) %>
 <p id="notice"><%= notice %></p>
 <div class="row">
   <aside class="span4">
@@ -7,6 +7,10 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <div>
+        <%= @user.bio %>
+        Test Bio
+      </div>
     </section>
     <section>
       <%= render 'shared/stats' %>

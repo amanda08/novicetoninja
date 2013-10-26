@@ -2,13 +2,17 @@ class GoalsController < ApplicationController
   before_action :signed_in_user,  only: [:create, :destroy]
   before_action :correct_user,    only: :destroy
 
+  def new
+    @goal = Goal.new
+  end
+
   def create
     @goal = current_user.goals.build(goal_params)
     if @goal.save
       flash[:success] = "Goal created!"
       redirect_to root_url
     else
-      @feed_items = []
+      @goal_items = []
       render 'static_pages/home'
     end
   end

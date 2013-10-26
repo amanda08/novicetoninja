@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     if signed_in?
-      @goal = current_user.goals.build
+      @activity = current_user.activities.build
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
   end

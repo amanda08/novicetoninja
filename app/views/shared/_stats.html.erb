@@ -2,7 +2,7 @@
 <div class="stats">
   <a href="<%= following_user_path(@user) %>">
     <strong id="activities" class="stat">
-      22
+      <%= @user.activities.count %>
     </strong>
     activities
   </a>

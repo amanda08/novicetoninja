@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :followers, through: :reverse_relationships, source: :follower
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
+  validates :bio, length: { maximum: 140 }, allow_blank: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, 
                     format: { with: VALID_EMAIL_REGEX }, 
@@ -29,8 +30,8 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    # This is preliminary. TODO
-    Goal.where("user_id = ?", id)
+    Activity.where("user_id = ?", id)
+    # TODO: Activity.from_users_followed_by(self)
   end
 
   def following?(other_user)

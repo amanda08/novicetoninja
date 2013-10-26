@@ -7,12 +7,10 @@
       <section>
         <%= render 'shared/stats' %>
       </section>
-      <section>
-        <%= render 'shared/goal_form' %>
-      </section>
     </aside>
     <div class="span8">
       <h3>Activity Feed</h3>
+      <h4><%= link_to "add activity", new_activity_path %>
       <%= render 'shared/feed' %>
     </div>
   </div>
