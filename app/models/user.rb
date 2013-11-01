@@ -30,9 +30,11 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    Activity.where("user_id = ?", id)
-    # TODO: Activity.from_users_followed_by(self)
+    # old implementation: Activity.where("user_id = ?", id)
+    Activity.from_users_followed_by(self)
   end
+
+  
 
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)

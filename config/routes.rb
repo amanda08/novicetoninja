@@ -8,8 +8,9 @@ Ninja::Application.routes.draw do
   root 'static_pages#home'
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :activities
     end
+    resources :activities
   end
   resources :activities,    only: [:new, :create, :destroy]
   resources :sessions,      only: [:new, :create, :destroy]

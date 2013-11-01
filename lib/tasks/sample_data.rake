@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_goals
+    make_activities
     # TODO: add make_activities
     make_relationships
   end
@@ -26,6 +27,15 @@ def make_users
                   password: password,
                   password_confirmation: password)
     end
+end
+
+def make_activities
+  users = User.all(limit: 6)
+  20.times do
+    description = Faker::Lorem.sentence(3)
+    title = Faker::Lorem.sentence(1)
+    users.each { |user| user.activities.create!(title: title, description: description) }
+  end
 end
 
 def make_goals

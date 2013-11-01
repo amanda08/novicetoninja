@@ -69,6 +69,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def activities
+    @title = "Activity"
+    @user = User.find(params[:id])
+    @user_activities = @user.activities.paginate(page: params[:page])
+    render 'show_activity'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

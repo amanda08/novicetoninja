@@ -1,0 +1,23 @@
+<% provide(:page_title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>Goals:</b> <%= @user.goals.count %></span>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <% if @user_activities.any? %>
+      <ul class="activities">
+        <%= render partial: 'activity_item', collection: @user_activities, as: :user_activity %>
+      </ul>
+      <%= will_paginate @user_activities %>
+    <% end %>
+  </div>
+</div>
