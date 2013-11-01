@@ -10,9 +10,7 @@
     Posted <%= time_ago_in_words(user_activity.created_at) %> ago.
   </span>
 </li>
-<li>
-  <% if current_user.admin? && !current_user?(@user) %>
-    | <%= link_to "delete", @user, method: :delete,
+<% if current_user.admin? && !current_user?(@user) %>
+    <%= link_to "delete", @user, method: :delete,
                                 data: { confirm: "You sure?" } %>
   <% end %>                       
-</li>
