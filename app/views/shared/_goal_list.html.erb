@@ -1,0 +1,6 @@
+<% if @goals.any? %>
+<h2>My Goals</h2>
+  <ol class="goals">
+    <%= render partial: 'goals/goal', collection: @goals %>
+  </ol>
+<% end %>

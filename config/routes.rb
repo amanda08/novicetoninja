@@ -14,7 +14,7 @@ Ninja::Application.routes.draw do
   end
   resources :activities,    only: [:new, :create, :destroy]
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :goals,         only: [:create, :destroy]
+  resources :goals,         only: [:create, :destroy, :show]
   resources :relationships, only:[:create, :destroy]
   
   # The priority is based upon order of creation: first created -> highest priority.

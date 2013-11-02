@@ -1,0 +1,9 @@
+<li>
+  <span class="content"><%= wrap(goal.content) %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(goal.created_at) %> ago.
+  </span>
+  <% if current_user?(goal.user) %>
+    <%= link_to "delete", goal, method: :delete, data: { confirm: "You sure?" }, title: goal.content %>
+  <% end %>
+</li>

@@ -1,9 +1,8 @@
 <li>
-  <span class="content"><%= wrap(goal.content) %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(goal.created_at) %> ago.
+  <span class="content"> 
+    <%= link_to(goal) do %>
+    <%= image_tag("ninja_icon.gif", size: "16", alt: "*") %>
+    <%= wrap(goal.content) %>
+    <% end %>
   </span>
-  <% if current_user?(goal.user) %>
-    <%= link_to "delete", goal, method: :delete, data: { confirm: "You sure?" }, title: goal.content %>
-  <% end %>
 </li>

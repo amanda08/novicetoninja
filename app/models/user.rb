@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
 
   def feed
     # old implementation: Activity.where("user_id = ?", id)
-    Activity.from_users_followed_by(self)
+    Activity.from_users_followed_by(self).order(created_at: :desc)
   end
 
   
