@@ -12,7 +12,7 @@ Ninja::Application.routes.draw do
     end
     resources :activities
   end
-  resources :activities,    only: [:new, :create, :destroy]
+  resources :activities
   resources :sessions,      only: [:new, :create, :destroy]
   resources :goals,         only: [:create, :destroy, :show]
   resources :relationships, only:[:create, :destroy]

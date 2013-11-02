@@ -17,6 +17,21 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def edit
+    @activity = current_user.activities.find(params[:id])
+  end
+
+  def update
+    @activity = current_user.activities.find(params[:id])
+
+    if @activity.update_attributes(activity_params)
+      redirect_to root_url, notice: "Activity saved!"
+    else
+      @feed_items = []
+      render 'static_pages/home'
+    end
+  end
+
   def destroy
     @activity.destroy
     redirect_to root_url

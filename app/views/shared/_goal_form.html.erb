@@ -1,7 +1,10 @@
 <%= form_for(@goal) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_field :content, placeholder: "Add your next goal!" %>
+  
+  <div class="controls-row">
+    <div class="input-append">
+      <%= f.text_field :content, placeholder: "Add your next goal!", class: 'span3' %>
+      <%= f.submit "Add Goal", class: "btn" %>
+    </div>
   </div>
-  <%= f.submit "Add Goal", class: "btn btn-large btn-primary" %>
-<% end %>
+<% end %>  

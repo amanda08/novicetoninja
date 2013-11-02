@@ -2,23 +2,6 @@
 <h1>Edit activity</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@activity) do |f| %>
-      <%= render 'shared/error_messages', object: f.object %>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-
-      <%= f.label :link %>
-      <%= f.text_field :link %>
-
-      <%= f.label :xp %>
-      <%= f.number_field :xp %>
-
-      <div style="text-align: center;">
-        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
-      </div>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>

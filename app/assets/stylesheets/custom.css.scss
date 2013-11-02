@@ -1,3 +1,5 @@
+$btnPrimaryBackground: saturate(#7a9b89, 20%);
+
 @import "bootstrap";
 
 /* mixins, variables, etc. */
@@ -257,3 +259,17 @@ aside {
     margin-right: 10px;
   }
 }
+
+.gravatar.size-50 {
+  width: 50px;
+  height: 50px;
+}
+
+/*.btn-primary {
+  background: #7a9b89;
+  background-image: linear-gradient(to bottom, #7a9b89, darken(#7a9b89, 10%));
+
+  &:hover {
+    background-image: linear-gradient(to bottom, darken(#7a9b89, 10%), #7a9b89);
+  }
+}*/

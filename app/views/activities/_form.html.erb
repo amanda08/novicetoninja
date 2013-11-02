@@ -1,0 +1,25 @@
+<%= form_for(@activity) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+
+  <%= f.label :xp %>
+  <%= f.number_field :xp %>
+
+  <% current_user.goals.each do |goal| %>
+    <%= label_tag "activity_goal_id_#{goal.id}" do %>
+      <%= check_box_tag "activity[goal_ids][]", goal.id, @activity.goals.include?(goal), id: "activity_goal_id_#{goal.id}" %>
+      <%= goal.content %><br/>
+    <% end %>
+  <% end %>
+
+  <div style="text-align: center;">
+    <%= f.submit class: "btn btn-large btn-primary" %>
+  </div>
+<% end %>
