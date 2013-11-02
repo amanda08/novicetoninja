@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131026075220) do
+ActiveRecord::Schema.define(version: 20131102070720) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
@@ -25,13 +25,15 @@ ActiveRecord::Schema.define(version: 20131026075220) do
 
   add_index "activities", ["user_id", "title"], name: "index_activities_on_user_id_and_title"
 
-  create_table "activities_goals", force: true do |t|
-    t.integer "goal_id"
-    t.integer "activity_id"
+  create_table "contributions", force: true do |t|
+    t.integer  "goal_id"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "activities_goals", ["activity_id"], name: "index_activities_goals_on_activity_id"
-  add_index "activities_goals", ["goal_id"], name: "index_activities_goals_on_goal_id"
+  add_index "contributions", ["activity_id"], name: "index_contributions_on_activity_id"
+  add_index "contributions", ["goal_id"], name: "index_contributions_on_goal_id"
 
   create_table "goals", force: true do |t|
     t.string   "content"
