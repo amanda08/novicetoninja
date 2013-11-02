@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
       @activity = current_user.activities.build
       # removed .build from above
       @feed_items = current_user.feed.paginate(page: params[:page])
+      @goal = Goal.new
     end
   end
 
