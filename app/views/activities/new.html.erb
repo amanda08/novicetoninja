@@ -16,6 +16,11 @@
       <%= f.label :xp %>
       <%= f.number_field :xp %>
 
+      <% current_user.goals.each do |goal| %>
+        <%= check_box_tag "activity[goal_ids][]", goal.id %>
+        <%= goal.content %><br/>
+      <% end %>
+
       <div style="text-align: center;">
         <%= f.submit "Add activity", class: "btn btn-large btn-primary" %>
       </div>

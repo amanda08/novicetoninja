@@ -25,7 +25,7 @@ class ActivitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def activity_params
-      params.require(:activity).permit(:title, :description, :link, :xp)
+      params.require(:activity).permit(:title, :description, :link, :xp, goal_ids: [])
     end
     def correct_user
       @activity = current_user.activities.find_by(id: params[:id])
