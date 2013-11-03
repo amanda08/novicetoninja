@@ -2,6 +2,11 @@ class ActivitiesController < ApplicationController
   before_action :signed_in_user,  only: [:create, :destroy]
   before_action :correct_user,    only: [:destroy]
 
+  def index
+    @user = User.find(params[:user_id])
+    @activities = @user.activities.paginate(page: params[:page])
+  end
+
   def new
     @activity = Activity.new
   end

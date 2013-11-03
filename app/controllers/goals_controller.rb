@@ -22,6 +22,10 @@ class GoalsController < ApplicationController
     redirect_to root_url
   end
 
+  def show
+    
+  end
+  
   private
 
     def goal_params

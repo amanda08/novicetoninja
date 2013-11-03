@@ -1,35 +1,23 @@
-<h1>Listing activities</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>User</th>
-      <th>Description</th>
-      <th>Link</th>
-      <th>Xp</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @activities.each do |activity| %>
-      <tr>
-        <td><%= activity.title %></td>
-        <td><%= activity.user_id %></td>
-        <td><%= activity.description %></td>
-        <td><%= activity.link %></td>
-        <td><%= activity.xp %></td>
-        <td><%= link_to 'Show', activity %></td>
-        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% provide(:page_title, @title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>Goals:</b> <%= @user.goals.count %></span>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <% if @activities.any? %>
+      <ul class="activities">
+        <%= render partial: 'activity_item', collection: @activities, as: :user_activity %>
+      </ul>
+      <%= will_paginate @activities %>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Activity', new_activity_path %>
+  </div>
+</div>
