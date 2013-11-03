@@ -7,10 +7,11 @@ Ninja::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   root 'static_pages#home'
   resources :users do
-    member do
-      get :following, :followers, :activities
-    end
+    #member do
+      #get :following, :followers, :activities
+    #end
     resources :activities
+    resource :following, only: [:show]
   end
   resources :activities
   resources :sessions,      only: [:new, :create, :destroy]
