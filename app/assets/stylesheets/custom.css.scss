@@ -78,6 +78,13 @@ textarea {
   margin: 10px 0 0 0;
 }
 
+.title {
+  list-style: none;
+  margin: 10px 0 0 0;
+  font-weight: bold;
+  /*color: ;*/
+}
+
 .activities {
   list-style: none;
   margin: 10px 0 0 0;
@@ -92,8 +99,14 @@ textarea {
 }
 
 .timestamp {
-  color: $grayLight;
+  color: $grayMediumLight;
   font-size: 0.8em;
+
+}
+
+.activity-link {
+  color: blue;
+  font-size: 1em;
 }
 
 
