@@ -1,11 +1,13 @@
+<h1><%= @goal.content %></h1>
+
 <% provide(:page_title, @title) %>
 <div class="row">
   <aside class="span4">
     <section>
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Goals:</b> <%= @user.goals.count %></span>
+      <%= gravatar_for current_user %>
+      <h1><%= current_user.name %></h1>
+      <span><%= link_to "view my profile", current_user %></span>
+      <span><b>Goals:</b> <%= current_user.goals.count %></span>
     </section>
     <section>
       <%= render 'shared/stats' %>

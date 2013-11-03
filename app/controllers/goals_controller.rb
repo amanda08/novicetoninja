@@ -23,7 +23,8 @@ class GoalsController < ApplicationController
   end
 
   def show
-    
+    @goal = current_user.goals.find(params[:id])
+    @activities = @goal.activities.paginate(page: params[:page])
   end
   
   private
