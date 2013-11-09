@@ -1,4 +1,4 @@
-<% if signed_in? %>
+  <% if signed_in? %>
   <div class="row">
     <aside class="span4">
       <section>
@@ -18,9 +18,15 @@
       </section>
     </aside>
     <div class="span8">
-      <h3>Activity Feed</h3>
-      <h4><%= link_to "add activity", new_activity_path %>
-      <%= render 'shared/feed' %>
+      <div class="page-header">
+        <h4>Activity Feed</h4>
+        <%= link_to new_activity_path, class: "btn btn-primary btn-small" do %>
+        <i class="icon-plus"></i>
+        <% end %>
+      </div>
+      <ul class="activities">
+        <%= render partial: 'shared/activity_item', collection: @feed_items, as: 'user_activity' %>
+      </ul>
     </div>
   </div>
 <% else %>

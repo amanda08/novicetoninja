@@ -1,10 +1,13 @@
 $btnPrimaryBackground: saturate(#7a9b89, 20%);
 
+
+
 @import "bootstrap";
 
 /* mixins, variables, etc. */
 
-$grayMediumLight: #eaeaea;
+$grayMediumLight: #999999;
+$palevioletred: #8b475d;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -56,6 +59,20 @@ textarea {
 
 }
 
+.page-header {
+  margin: 0;
+  border: 0;
+  h1, h2, h3, h4, h5, h6 {
+    display: inline;
+    margin-right: 10px;
+    vertical-align: middle;
+
+  }
+  .btn {
+    vertical-align: middle;
+  }
+}
+
 /* users index */
 
 .users {
@@ -71,17 +88,25 @@ textarea {
   }
 }
 
-/* goals */
+/* activities */
 
 .goals {
   list-style: none;
   margin: 10px 0 0 0;
 }
 
+.name {
+  list-style: none;
+  margin: 10px 0 0 0;
+  color: $blue;
+}
+
 .title {
   list-style: none;
   margin: 10px 0 0 0;
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1em;
+  color: palevioletred;
   /*color: ;*/
 }
 
@@ -96,17 +121,24 @@ textarea {
 
 .description {
   display: block;
+  list-style: none;
+  font-size: 1em;
+  color: grayMediumLight;
+}
+
+.goal_tags {
+
 }
 
 .timestamp {
-  color: $grayMediumLight;
+  color: $grayLighter;
   font-size: 0.8em;
 
 }
 
 .activity-link {
   color: blue;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 
 

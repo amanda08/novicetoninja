@@ -1,6 +1,10 @@
-
 <li>
+   <%= link_to gravatar_for(user_activity.user, size: 42), user_activity.user %>
   <span class="title">
+    <strong>
+      <%= link_to user_activity.user.name, user_activity.user %>
+    </strong>
+    added: 
     <%= user_activity.title %>
   </span>
   <span class="description">
@@ -10,11 +14,12 @@
   <% if user_activity.link? %>
     <%= link_to wrap(user_activity.link), user_activity.link %>
   <% end %>
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(user_activity.created_at) %> ago.
   </span>
-</li>
-<% if current_user.admin? && !current_user?(@user) %>
+  <% if current_user.admin? && !current_user?(@user) %>
     <%= link_to "delete", @user, method: :delete,
                                 data: { confirm: "You sure?" } %>
   <% end %>   
+</li>

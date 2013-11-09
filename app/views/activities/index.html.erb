@@ -15,7 +15,7 @@
     <h3><%= @title %></h3>
     <% if @activities.any? %>
       <ul class="activities">
-        <%= render partial: 'shared/activity_item', collection: @activities, as: :user_activity %>
+        <%= render partial: 'shared/activity_item', collection: @activities, as: 'user_activity' %>
       </ul>
       <%= will_paginate @activities %>
     <% end %>

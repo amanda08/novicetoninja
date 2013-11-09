@@ -6,6 +6,9 @@
   <span class="description">
     <%= wrap(user_activity.description) %>
   </span>
+  <span class="goal_tags">
+    
+  </span>
   <span class="activity-link">
   <% if user_activity.link? %>
     <%= link_to wrap(user_activity.link), user_activity.link %>
@@ -17,4 +20,4 @@
 <% if current_user.admin? && !current_user?(@user) %>
     <%= link_to "delete", @user, method: :delete,
                                 data: { confirm: "You sure?" } %>
-  <% end %>                       
+  <% end %> 
