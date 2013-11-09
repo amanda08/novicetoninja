@@ -24,6 +24,9 @@
         <i class="icon-plus"></i>
         <% end %>
       </div>
+      <div>
+        <%= render 'goals/goal_graph', user: current_user %>
+      </div>
       <ul class="activities">
         <%= render partial: 'shared/activity_item', collection: @feed_items, as: 'user_activity' %>
       </ul>

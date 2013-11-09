@@ -4,4 +4,8 @@ class Goal < ActiveRecord::Base
   has_many :activities, through: :contributions
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
+
+  def score 
+    contributions.count
+  end 
 end

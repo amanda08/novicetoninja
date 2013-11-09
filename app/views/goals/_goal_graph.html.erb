@@ -1,0 +1,19 @@
+<table class="goals">
+<% user.goals.each do |goal| %>
+  <tr>
+    <td>
+      <%= link_to goal.content, goal %>
+    </td>
+    <td>
+      <% goal.score.times do |x|  %>
+      <i class="icomoon-ninja-star-colored">
+      </i>
+      <% end %>
+      <% (10 - goal.score).times do |x|  %>
+      <i class="icomoon-ninja-star">
+      </i>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

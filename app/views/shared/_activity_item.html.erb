@@ -15,6 +15,12 @@
     <%= link_to wrap(user_activity.link), user_activity.link %>
   <% end %>
   </span>
+  <span class="goal_tags">
+    <% user_activity.goals.each do |goal| %>
+      <%= link_to goal.content, goal %>
+    <% end %>
+    
+  </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(user_activity.created_at) %> ago.
   </span>
