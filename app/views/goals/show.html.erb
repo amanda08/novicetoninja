@@ -1,6 +1,5 @@
-<h1><%= @goal.content %></h1>
-
-<% provide(:page_title, @title) %>
+<% provide(:page_title, @goal.content) %>
+<% @user ||= current_user %>
 <div class="row">
   <aside class="span4">
     <section>
@@ -14,7 +13,7 @@
     </section>
   </aside>
   <div class="span8">
-    <h3><%= @title %></h3>
+    <h4><%= @goal.content %></h4>
     <% if @activities.any? %>
       <ul class="activities">
         <%= render partial: 'shared/activity_item', collection: @activities, as: 'user_activity' %>

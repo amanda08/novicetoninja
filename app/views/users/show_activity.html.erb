@@ -18,6 +18,11 @@
         <%= render partial: 'activity_item', collection: @user_activities, as: :user_activity %>
       </ul>
       <%= will_paginate @user_activities %>
+    <% else %>
+      <h3><%= @title %></h3>
+      <div> You have no activities. 
+        <%= link_to new_activity_path, "Click to add an activity." %>
+      </div>
     <% end %>
   </div>
 </div>

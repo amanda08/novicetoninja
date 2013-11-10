@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :signed_in_user,  only: [:create, :destroy]
+  before_action :signed_in_user,  only: [:create, :destroy, :show]
   before_action :correct_user,    only: :destroy
 
   def new
@@ -23,7 +23,9 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = current_user.goals.find(params[:id])
+    @goal = Goal.find(params[:id])
+    #@user = current_user
+    #@goal = @user.goals.find_by(id: params[:id])
     @activities = @goal.activities.paginate(page: params[:page])
   end
   

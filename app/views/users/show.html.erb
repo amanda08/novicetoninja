@@ -11,12 +11,6 @@
   </aside>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
-    <% if @user.goals.any? %>
-    <h3>Goals (<%= @user.goals.count %>)</h3>
-    <ol class="goals">
-      <%= render @goals %>
-    </ol>
-    <%= will_paginate @goals %>
-    <% end %>
+    <%= render 'goals/goal_graph', user: @user %>
   </div>
 </div>

@@ -13,11 +13,26 @@
   </aside>
   <div class="span8">
     <h3><%= @title %></h3>
+    <div class="page-header">
+        <h4><%= @user.first_name %>'s Activities</h4>
+        <% if current_user?(@user) %>
+          <%= link_to new_activity_path, class: "btn btn-primary btn-small" do %>
+            <i class="icon-plus"></i>
+          <% end %>
+        <% end %>
+      </div>
     <% if @activities.any? %>
       <ul class="activities">
         <%= render partial: 'shared/activity_item', collection: @activities, as: 'user_activity' %>
       </ul>
       <%= will_paginate @activities %>
-    <% end %>
+    <% else %>
+      <% if current_user?(@user) %>
+        <h3><%= @title %></h3>
+        <div> You have no activities. 
+          <%= link_to "Click to add an activity.", new_activity_path %>
+        </div>
+      <% end %>
+    <% end %> 
   </div>
 </div>
