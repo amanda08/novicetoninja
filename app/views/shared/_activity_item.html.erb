@@ -27,5 +27,8 @@
   <% if current_user.admin? && !current_user?(@user) %>
     <%= link_to "delete", @user, method: :delete,
                                 data: { confirm: "You sure?" } %>
-  <% end %>   
+  <% end %> 
+  <% if current_user?(user_activity.user) %>
+    <%= link_to "delete", user_activity, method: :delete, data: { confirm: "You sure?" }, title: user_activity.title %>
+  <% end %>
 </li>
