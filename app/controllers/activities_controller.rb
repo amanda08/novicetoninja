@@ -39,7 +39,10 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @activity.destroy
-    redirect_to root_url
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js { render :text => "$('li#activity_#{@activity.id}').remove()" }
+    end
   end
 
   private

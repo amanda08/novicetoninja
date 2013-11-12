@@ -14,7 +14,7 @@
   <div class="span8">
     <h3><%= @title %></h3>
     <div class="page-header">
-        <h4><%= @user.first_name %>'s Activities</h4>
+        <h4><%= @user.name %>'s Activities</h4>
         <% if current_user?(@user) %>
           <%= link_to new_activity_path, class: "btn btn-primary btn-small" do %>
             <i class="icon-plus"></i>

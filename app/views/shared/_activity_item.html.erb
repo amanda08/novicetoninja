@@ -1,4 +1,4 @@
-<li>
+<li id="activity_<%= user_activity.id%>">
    <%= link_to gravatar_for(user_activity.user, size: 42), user_activity.user %>
   <span class="title">
     <strong>
@@ -29,6 +29,6 @@
                                 data: { confirm: "You sure?" } %>
   <% end %> 
   <% if current_user?(user_activity.user) %>
-    <%= link_to "delete", user_activity, method: :delete, data: { confirm: "You sure?" }, title: user_activity.title %>
+    <%= link_to "delete", user_activity, method: :delete, data: { confirm: "You sure?" }, remote: true, title: user_activity.title %>
   <% end %>
 </li>

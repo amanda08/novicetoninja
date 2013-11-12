@@ -6,6 +6,7 @@ class Goal < ActiveRecord::Base
   validates :user_id, presence: true
 
   def score 
-    contributions.count
+    num = contributions.count
+    [num,10].min
   end 
 end
