@@ -1,6 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require 'rails/all'
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "active_resource/railtie"
+require "active_record/railtie"
+require "sprockets/railtie"
 
 
 
@@ -23,5 +27,9 @@ module Ninja
     # config.i18n.default_locale = :de
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
