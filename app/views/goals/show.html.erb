@@ -14,7 +14,9 @@
   </aside>
   <div class="span8">
     <h4><%= @goal.content %></h4>
-    <% if @activities.any? %>
+    <% if !@activities.any? && current_user?(@user) %>
+      <%= link_to "Add an activity for this goal!", new_activity_path %>
+    <% elsif @activities.any? %>
       <ul class="activities">
         <%= render partial: 'shared/activity_item', collection: @activities, as: 'user_activity' %>
       </ul>

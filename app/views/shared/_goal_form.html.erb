@@ -1,10 +1,12 @@
+<% if @goal != nil %>
 <%= form_for(@goal) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   
   <div class="controls-row">
     <div class="input-append">
-      <%= f.text_field :content, placeholder: "Add your next goal!", class: 'span3' %>
+      <%= f.text_field :content, placeholder: "What do you want to learn?", class: 'span3' %>
       <%= f.submit "Add Goal", class: "btn" %>
     </div>
   </div>
 <% end %>  
+<% end %>

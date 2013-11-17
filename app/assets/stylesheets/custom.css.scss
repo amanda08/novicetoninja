@@ -1,13 +1,23 @@
-$btnPrimaryBackground: saturate(#7a9b89, 20%);
-
+/* $btnPrimaryBackground: saturate(#7a9b89, 20%); */
+$btnPrimaryBackground: saturate(#20B2AA, 20%);
 
 
 @import "bootstrap";
 
 /* mixins, variables, etc. */
 
+/* light gray */
 $grayMediumLight: #999999;
+$grayBlind: #53777A;
+/* dark brown/gray */
+$eveningcloud: #2E2633;
+$darkbrown: #2A0606;
+/* turquoise */
+$thoughtless: #53777A;
+/* dark pink */
 $palevioletred: #8b475d;
+$heliotrope: #99173C;
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -101,7 +111,6 @@ textarea {
 .name {
   list-style: none;
   margin: 10px 0 0 0;
-  color: $blue;
 }
 
 .title {
@@ -109,7 +118,7 @@ textarea {
   margin: 10px 0 0 0;
   font-weight: normal;
   font-size: 1em;
-  color: palevioletred;
+  color: $palevioletred;
   /*color: ;*/
 }
 
@@ -126,22 +135,34 @@ textarea {
   display: block;
   list-style: none;
   font-size: 1em;
-  color: grayMediumLight;
+  color: $grayMediumLight;
 }
 
 .goal_tags {
+  background-color: $grayLighter;
+  display: inline-block;
+  padding: 1px;
+  margin: 10px 2px 2px 0;
+}
 
+.blue {
+  a {
+    font-color: $thoughtless !important;
+  }
 }
 
 .timestamp {
-  color: $grayLighter;
+  /*color: $grayLighter;*/
+  color: $grayBlind;
   font-size: 0.8em;
+  display: inline-block;
 
 }
 
 .activity-link {
   color: blue;
   font-size: 0.9em;
+  display: block;
 }
 
 
@@ -168,9 +189,19 @@ h2 {
 	color: $grayLight;
 }
 
+h3 {
+  color: $heliotrope;
+}
+
+h4 {
+  color: $eveningcloud;
+}
+
 p {
 	font-size: 1.1em;
 	line-height: 1.7em;
+  margin-bottom: 20px;
+  color: gray;
 }
 
 /* header */
@@ -345,7 +376,7 @@ aside {
 }
 
 .icomoon-ninja-star-colored:before {
-    color: $palevioletred;
+    color: $heliotrope;
     content: "\e600";
     font-size: 1.4em;
 }

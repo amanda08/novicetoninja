@@ -9,6 +9,15 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+    <div>
+      <% if @user.bio==nil && current_user?(@user) %>
+        <p class="blue" >
+          <%= link_to "Write a little bit about yourself!", edit_user_path(current_user) %>
+        </p>
+      <% else %>
+        <%= @user.bio %>
+      <% end %>     
+  </div>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
     <%= render 'goals/goal_graph', user: @user %>

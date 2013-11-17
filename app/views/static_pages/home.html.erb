@@ -1,4 +1,4 @@
-  <% if signed_in? %>
+<% if signed_in? %>
   <div class="row">
     <aside class="span4">
       <section>
@@ -13,19 +13,13 @@
       <section>
         <%= render 'shared/goal_form' %>
       </section>
-      <section>
-        <%= render 'shared/goal_list' %>
-      </section>
     </aside>
     <div class="span8">
       <div class="page-header">
-        <h4>Activity Feed</h4>
+        <h4>My Activity Feed</h4>
         <%= link_to new_activity_path, class: "btn btn-primary btn-small" do %>
         <i class="icon-plus"></i>
         <% end %>
-      </div>
-      <div>
-        <%= render 'goals/goal_graph', user: current_user %>
       </div>
       <ul class="activities">
         <%= render partial: 'shared/activity_item', collection: @feed_items, as: 'user_activity' %>
