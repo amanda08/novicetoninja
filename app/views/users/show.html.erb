@@ -3,23 +3,29 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <%= render partial: 'shared/user_info', locals: { user: @user }  %>
+      <%= link_to gravatar_for(@user, size: 104), @user %>
     </section>
     <section>
       <%= render 'shared/stats' %>
     </section>
   </aside>
-    <div>
-      <% if @user.bio==nil && current_user?(@user) %>
-        <p class="blue" >
-          <%= link_to "Write a little bit about yourself!", edit_user_path(current_user) %>
-        </p>
-      <% else %>
-        <%= @user.bio %>
-      <% end %>     
-  </div>
-  <div class="span8">
-    <%= render 'follow_form' if signed_in? %>
-    <%= render 'goals/goal_graph', user: @user %>
-  </div>
+    <div class="page-header">
+      <h4><%= @user.name %></h4>
+      <div>
+        <% if @user.bio==nil && current_user?(@user) %>
+          <p class="blue" >
+            <%= link_to "Write a little bit about yourself!", edit_user_path(current_user) %>
+          </p>
+        <% else %>
+          <%= @user.bio %>
+        <% end %>  
+      </div>   
+      <div>
+        <%= pluralize(@user.goals.count, "goal") %>
+      </div>
+    </div>
+    <div class="span8">
+      <%= render 'follow_form' if signed_in? %>
+      <%= render 'goals/goal_graph', user: @user %>
+    </div>
 </div>

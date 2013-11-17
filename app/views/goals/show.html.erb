@@ -13,14 +13,23 @@
     </section>
   </aside>
   <div class="span8">
-    <h4><%= @goal.content %></h4>
-    <% if !@activities.any? && current_user?(@user) %>
-      <%= link_to "Add an activity for this goal!", new_activity_path %>
-    <% elsif @activities.any? %>
-      <ul class="activities">
-        <%= render partial: 'shared/activity_item', collection: @activities, as: 'user_activity' %>
-      </ul>
-      <%= will_paginate @activities %>
-    <% end %>
-  </div>
+    <div class="page-header">
+      <h4><%= @goal.content %></h4>
+      <% if @user == current_user %>
+        <%= link_to new_activity_path, class: "btn btn-primary btn-small" do %>
+            <i class="icon-plus"></i>
+        <% end %>
+      <% end %>
+      <% if !@activities.any? && current_user?(@user) %>
+        <div>
+        <%= link_to "Add an activity for this goal!", new_activity_path %>
+        </div>
+      <% elsif @activities.any? %>
+        <ul class="activities">
+          <%= render partial: 'shared/activity_item', collection: @activities, as: 'user_activity' %>
+        </ul>
+        <%= will_paginate @activities %>
+      <% end %>
+    </div>
+  <div>
 </div>
