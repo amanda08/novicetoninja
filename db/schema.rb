@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120011657) do
+ActiveRecord::Schema.define(version: 20131120014258) do
 
   create_table "activities", force: true do |t|
     t.string   "title"
     t.integer  "user_id"
     t.string   "description"
     t.string   "link"
-    t.integer  "xp"
+    t.integer  "xp",          default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

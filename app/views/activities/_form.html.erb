@@ -9,9 +9,6 @@
   <%= f.label :URL %>
   <%= f.text_field :link %>
 
-  <%= f.label :xp %>
-  <%= f.number_field :xp %>
-
   <% current_user.goals.each do |goal| %>
     <%= label_tag "activity_goal_id_#{goal.id}" do %>
       <%= check_box_tag "activity[goal_ids][]", goal.id, @activity.goals.include?(goal), id: "activity_goal_id_#{goal.id}" %>
