@@ -19,7 +19,8 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    redirect_to root_url
+      flash[:success] = "Goal deleted."
+      redirect_to user_path(current_user)
   end
 
   def show

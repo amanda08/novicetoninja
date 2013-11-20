@@ -30,6 +30,10 @@
         </ul>
         <%= will_paginate @activities %>
       <% end %>
+      
     </div>
   <div>
+  <% if current_user?(@goal.user) %>
+    <%= link_to "Delete Goal", @goal, method: :delete, data: { confirm: "You sure?" } %>
+  <% end %>
 </div>

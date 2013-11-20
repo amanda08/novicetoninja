@@ -14,7 +14,7 @@ Ninja::Application.routes.draw do
     resource :following, only: [:show]
     resource :followers, only: [:show]
   end
-  resources :activities
+  resources :activities,    onlye: [:new, :create, :destroy]
   resources :sessions,      only: [:new, :create, :destroy]
   resources :goals,         only: [:create, :destroy, :show]
   resources :relationships, only:[:create, :destroy]
