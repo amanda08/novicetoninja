@@ -2,9 +2,8 @@
    <%= link_to gravatar_for(user_activity.user, size: 42), user_activity.user %>
   <span class="title">
     <strong>
-      <%= link_to user_activity.user.name, user_activity.user %>
+      <%= link_to user_activity.user.name, user_activity.user %>:
     </strong>
-    added: 
     <%= user_activity.title %>
   </span>
   <span class="description">
@@ -15,20 +14,22 @@
     <%= link_to wrap(user_activity.link), user_activity.link %>
   <% end %>
   </span>
-  <span class="goal_tags">
+  <span>
     <% user_activity.goals.each do |goal| %>
+      <p class="goal_tags">
       <%= link_to goal.content, goal %>
+      </p>
     <% end %>
   </span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(user_activity.created_at) %> ago.
   </span>
   <% if current_user.admin? && !current_user?(@user) %>
-    <%= link_to "delete", @user, method: :delete,
+    | <%= link_to "delete", @user, method: :delete,
                                 data: { confirm: "You sure?" } %>
   <% end %> 
-  <% if current_user?(user_activity.user) %>
-    <%= link_to "delete", user_activity, method: :delete, data: { confirm: "You sure?" }, remote: true, title: user_activity.title %>
+  <% if current_user?(@user) %>
+    | <%= link_to "delete", user_activity, method: :delete, data: { confirm: "You sure?" }, remote: true, title: user_activity.title %>
     <%= link_to "edit", edit_activity_path(user_activity) %>
   <% end %>
 </li>

@@ -6,16 +6,9 @@ gem 'rails', '4.0.0'
 # Recommended to allow deployment on heroku.
 
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'nokogiri'
 
 
-# Use sqlite3 as the database for Active Record
-group :development do
-  gem 'sqlite3', '1.3.8'
-end
-
-group :development, :test do
-  gem 'rspec-rails'
-end
 
 
 # Use SCSS for stylesheets
@@ -52,7 +45,27 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use sqlite3 as the database for Active Record
+group :development do
+  gem 'sqlite3', '1.3.8'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'capybara'
+	gem 'guard-rspec'
+	gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i  
+	gem 'guard-livereload' 
+end
+
 group :production do
   gem 'pg'
   gem  'rails_12factor', '0.0.2'
 end
+
+group :test do
+	gem 'factory_girl_rails'
+	
+end
+
+
