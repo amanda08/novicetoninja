@@ -21,6 +21,13 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
@@ -53,4 +60,9 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)
     end
+
+    def generate_token(column)
+      self[column] = SecureRandom.urlsafe_base64
+    end
+
 end
