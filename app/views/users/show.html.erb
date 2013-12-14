@@ -9,6 +9,8 @@
       <%= render 'shared/stats' %>
     </section>
   </aside>
+    
+    <div class="span8">
     <div class="page-header">
       <h4><%= @user.name %></h4>
       <div>
@@ -24,7 +26,6 @@
         <%= pluralize(@user.goals.count, "goal") %>
       </div>
     </div>
-    <div class="span8">
       <%= render 'follow_form' if signed_in? %>
       <%= render 'goals/goal_graph', user: @user %>
     </div>

@@ -103,9 +103,11 @@ textarea {
 
 .goals {
   list-style: none;
-  margin: 10px 0 0 0;
+  margin: 0;
   td {
     font-size: 1.2em;
+    padding-bottom: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -195,7 +197,7 @@ h2 {
 
 h3 {
   color: $heliotrope;
-}
+} 
 
 h4 {
   color: $eveningcloud;
