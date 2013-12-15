@@ -28,6 +28,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #example of strong params
     if @user.save
+      # Tell the UserMailer to send a welcome Email after save
+      UserMailer.welcome_email(@user).deliver
+      UserMailer.signup_email(@user).deliver
       sign_in @user
       flash[:success] = "Thank-you for signing up!"
       redirect_to root_url

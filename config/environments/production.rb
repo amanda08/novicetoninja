@@ -79,5 +79,16 @@ Ninja::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
    #To get URLS working in mailers.
-  config.action_mailer.default_url_options = { host: "http://novicetoninja.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: 'novicetoninja.me' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:    'smtp.gmail.com',
+    port:        587,
+    domain:      'gmail.com',
+    user_name:   'novicetoninja99@gmail.com', 
+    password:    ENV['GMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
 end
