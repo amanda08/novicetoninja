@@ -13,6 +13,7 @@
     <div class="span8">
     <div class="page-header">
       <h4><%= @user.name %></h4>
+      <%= render 'follow_form' if signed_in? %>
       <div>
         <% if @user.bio==nil && current_user?(@user) %>
           <p class="blue" >
@@ -26,7 +27,7 @@
         <%= pluralize(@user.goals.count, "goal") %>
       </div>
     </div>
-      <%= render 'follow_form' if signed_in? %>
+      
       <%= render 'goals/goal_graph', user: @user %>
     </div>
 </div>

@@ -70,15 +70,20 @@ textarea {
 }
 
 .page-header {
-  margin: 0;
+  margin: 0 0 34px 0;
   border: 0;
   h1, h2, h3, h4, h5, h6 {
     display: inline;
     margin-right: 10px;
     vertical-align: middle;
-    color: $palevioletred;
-
+    color: $palevioletred;  
   }
+
+  .search {
+    display: inline-block;
+    float: right;
+  }
+
   .btn {
     vertical-align: middle;
   }

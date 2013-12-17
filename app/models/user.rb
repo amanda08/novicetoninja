@@ -17,6 +17,20 @@ class User < ActiveRecord::Base
   has_secure_password
   validates :password, length: { minimum: 6 }, allow_blank: true
 
+  def self.search(query)
+    if query.blank?
+      scoped
+    else
+      sql = query.split.map do |word|
+       %w[first_name last_name].map do |column|
+        sanitize_sql ["#{column} LIKE ?", "%#{word}%"]
+       end.join(" or ")
+      end.join(") and (")
+      where("(#{sql})")
+    end
+  end
+
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end

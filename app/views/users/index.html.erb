@@ -18,11 +18,9 @@
   <div class="span8">
     <div class="page-header">
       <h4>All users</h4>
-      <%= form_tag users_path, method: 'get' do %>
-      <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", name: nil %>
-      </p>
+      <%= form_tag users_path, method: 'get', class: 'search' do %>
+        <%= text_field_tag :search, params[:search], class: 'span3' %> 
+        <%= submit_tag "Search", class: "btn-primary btn-small", name: nil %>
       <% end %>
     </div>
     <%= will_paginate %>
